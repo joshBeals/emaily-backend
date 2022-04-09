@@ -1,6 +1,7 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import keys from "../config/keys.js";
+import { auth } from '../controllers/auth/auth.js'
 
 passport.use(
     new GoogleStrategy(
@@ -10,9 +11,7 @@ passport.use(
             callbackURL: "/auth/google/callback",
         },
         (accessToken, refreshToken, profile, done) => {
-            console.log("access token", accessToken);
-            console.log("refresh token", refreshToken);
-            console.log("profile:", profile);
+            auth(profile);
         }
     )
 );
