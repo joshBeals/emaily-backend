@@ -1,10 +1,10 @@
-const express = require('express');
-require('./services/passport');
+import express from 'express';
+import './services/passport.js';
 
 const app = express();
 
 //Import Routes
-const authRoute = require('./routes/authRoutes');
+import authRoute from './routes/authRoutes.js';
 
 //Route Middlewares
 app.use('/auth/google', authRoute);
