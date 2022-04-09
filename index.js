@@ -26,11 +26,9 @@ app.use(passport.session());
 
 // Import Routes
 import authRoute from './routes/authRoutes.js';
-import apiRoute from './routes/apiRoute.js';
 
 // Route Middlewares
-app.use('/auth/google', authRoute);
-app.use('/api', apiRoute);
+app.use('/auth', authRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
